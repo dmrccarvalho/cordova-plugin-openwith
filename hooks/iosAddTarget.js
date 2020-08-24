@@ -104,7 +104,7 @@ function getCordovaParameter(configXml, variableName) {
 
 // Get the bundle id from config.xml
 function getBundleId(context, configXml) {
-  var elementTree = require('elementtree');
+  var elementTree = context.requireCordovaModule('elementtree');
   var etree = elementTree.parse(configXml);
   return etree.getroot().get('id');
 }
