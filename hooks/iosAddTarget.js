@@ -213,7 +213,7 @@ console.log('Adding target "' + PLUGIN_ID + '/ShareExtension" to XCode project')
 
 module.exports = function (context) {
 
-  var Q = require('q');
+  var Q = context.requireCordovaModule("q");
   var deferral = new Q.defer();
 
   packageJson = require(path.join(context.opts.projectRoot, 'package.json'));
