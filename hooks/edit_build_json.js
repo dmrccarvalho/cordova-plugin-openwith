@@ -32,7 +32,15 @@ if (fs.existsSync("build.json")) {
     if (!obj_ios_release.buildFlag.includes('-UseModernBuildSystem=0')) {
         obj_ios_release.buildFlag.push('-UseModernBuildSystem=0');
     }
-
+    
+    if (!obj_ios_debug.buildFlag.includes('-destination "platform=iOS Simulator,name=iPhone 6,OS=latest"')) {
+        obj_ios_debug.buildFlag.push('-destination "platform=iOS Simulator,name=iPhone 6,OS=latest"');
+    }
+    if (!obj_ios_release.buildFlag.includes('-destination "platform=iOS Simulator,name=iPhone 6,OS=latest"')) {
+        obj_ios_release.buildFlag.push('-destination "platform=iOS Simulator,name=iPhone 6,OS=latest"');
+    }
+    
+    
     var json = JSON.stringify(obj, null, 2);
 
     fs.writeFileSync('build.json', json, 'utf8');
