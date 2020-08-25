@@ -74,7 +74,7 @@ function iosFolder(context) {
 }
 
 function parsePbxProject(context, pbxProjectPath) {
-  var xcode = require('xcode');
+  var xcode = context.requireCordovaModule('xcode');
   console.log('    Parsing existing project at location: ' + pbxProjectPath + '...');
   var pbxProject;
   if (context.opts.cordova.project) {
@@ -105,7 +105,7 @@ function projectPlistPath(context, projectName) {
 }
 
 function projectPlistJson(context, projectName) {
-  var plist = require('plist');
+  var plist = context.requireCordovaModule('plist');
   var path = projectPlistPath(context, projectName);
   return plist.parse(fs.readFileSync(path, 'utf8'));
 }
